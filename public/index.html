@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Chat Game</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+<h1>Bienvenue <span id="name"></span></h1>
+
+<div id="users">
+    <h2>Connectés</h2>
+    <ul></ul>
+</div>
+
+  <form id="msgform">
+  	<label>Message: <input type="text" name="message"></label>
+  </form>
+
+
+<ul id="list"></ul>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="./script.js"></script>
+
+</body>
+
+</html>
+
+<!--
+	<h1>hello world</h1>
+
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+	//on précise le port d'écoute du serveur
+  	var socket = io();
+  	//le client se connecte
+  	socket.on('connect', function() {
+  		//on lui dit qu'il est connecté
+    	console.log("connecté");
+  	});
+  	//le client écoute si le serveur à envoyé un chatpong
+  	socket.on('chatpong', ()=> {
+  		//on affiche dans la console que le serveur a envoyé un chatpong
+  		console.log('Server: Pong');
+  	})
+  	//on affiche dans la console que le client a envoyé un chatping
+  	console.log('Client: Ping')
+  	//Le client envoie un ping après s'être connecté
+    socket.emit('chatping');
+	</script>
+-->
