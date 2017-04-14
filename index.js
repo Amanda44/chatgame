@@ -59,12 +59,10 @@ io.on('connection', function (socket) {
     io.emit('users', users)
   })
 
-  socket.on('click', function(x, y){
-    const move = {
-      UserId: user.id,
-      x: x,
-      y: y
-    }
+  socket.on('move', function(position){
+    user.position.x = position.x
+    user.position.y = position.y
+    socket.emit('users', users)
   });
 
 });
