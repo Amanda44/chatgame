@@ -8,7 +8,7 @@
 </head>
 
 <body>
-<h1>Bienvenue <span id="name"></span></h1>
+<h1>Bienvenue </h1>
 
 <div id="users">
     <h2>Connectés</h2>
@@ -24,7 +24,28 @@
 
 <script src="/socket.io/socket.io.js"></script>
 <script src="./script.js"></script>
+<script>
+var mouse_down = false; 
 
+function on_mouse_down_square(event) { 
+ mouse_down=true; 
+} 
+
+function on_mouse_up(event){ 
+ mouse_down=false; 
+} 
+
+document.onmousemove = on_mouse_move; 
+
+document.onmouseup = on_mouse_up; 
+
+function on_mouse_move(event) { 
+  if (mouse_down === true) { 
+    document.querySelector('#bloc').style.left = event.clientX-50+'px'; 
+    document.querySelector('#bloc').style.top = event.clientY-50+'px'; 
+
+  } 
+} </script>
 </body>
 
 </html>

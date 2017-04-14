@@ -2,6 +2,13 @@ body {
   background-color: #034;
   color: #fff;
   font-size: 16px;
+  overflow: hidden;
+  height: 100%;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  position: absolute;
 }
 
 #msgform {
@@ -12,6 +19,15 @@ body {
   left: 0;
   right: 0;
 }
+
+#messages {
+  position: absolute;
+  width: 100%;
+  top: 70px;
+  bottom: 45px;
+  overflow: auto;
+}
+
 #msgform input {
   width: 100%;
   height: 50px;
@@ -28,7 +44,7 @@ body {
 
 #users {
   position: absolute;
-  width: 200;
+  width: 300px;
   top: 15px;
   right: 0;
 }
@@ -36,5 +52,17 @@ body {
   font-size: 20px;
 }
 #users ul {
-  
+  padding-left: 15px;
+}
+
+.user {
+  position: absolute;
+  text-align: center;
+  font-size: 34px;
+  width: 100px;
+  height: 34px;
+  line-height: 34px;
+  margin-left: -50px;
+  margin-top: -12px;
+  transition: top 1s ease-out, left 1s ease-out;
 }

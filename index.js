@@ -24,7 +24,11 @@ io.on('connection', function (socket) {
   
   const user = {
   	id: socket.id,
-  	nickname: settings.defaultNicknames[Math.floor(Math.random() * settings.defaultNicknames.length)]
+  	nickname: settings.defaultNicknames[Math.floor(Math.random() * settings.defaultNicknames.length)],
+    position: {
+    x: Math.random() * 100,
+    y: Math.random() * 100
+    }
 	};
   users.push(user);
   io.emit('users', users);
@@ -41,7 +45,7 @@ io.on('connection', function (socket) {
   socket.on('msg', function (txt) {
   	const message = {
   			id: uuid(),
-  			userId: user.nickname,
+  			userId: user.id,
   			txt: txt,
   			date: moment(date).format('DD/MM/YYYY à HH:mm')
   		}
@@ -49,6 +53,19 @@ io.on('connection', function (socket) {
 	  io.emit('msg', message);
   });
 
+  socket.on('nick', function(pseudo){
+    user.nickname = pseudo 
+    console.log(user.nickname)
+    io.emit('users', users)
+  })
+
+  socket.on('click', function(x, y){
+    const move = {
+      UserId: user.id,
+      x: x,
+      y: y
+    }
+  });
 
 });
 
